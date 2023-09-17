@@ -1,11 +1,12 @@
-const express = require('express')
-const app = express()
+const createApp = require('./app')
 const port = 3000
 
-app.get('/version', (req, res) => {
-  res.json({ version: '0.0.1' })
-})
+start()
 
-app.listen(port, () => {
-  console.log(`Example app listening on port ${port}`)
-})
+function start () {
+  const app = createApp()
+  
+  app.listen(port, () => {
+    console.log(`Example app listening on port ${port}`)
+  })
+}
