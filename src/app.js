@@ -1,5 +1,7 @@
 const express = require('express')
+
 const createLogger = require('./logger')
+const getMainRouter = require('./router')
 
 const createApp = () => {
   const app = express()
@@ -7,9 +9,8 @@ const createApp = () => {
   const logger = createLogger()
   app.use(logger)
 
-  app.get('/version', (req, res) => {
-    res.json({ version: '0.0.1' })
-  })
+  const mainRouter = getMainRouter()
+  app.use(mainRouter)
 
   return app
 }
