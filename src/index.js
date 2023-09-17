@@ -1,12 +1,14 @@
+const http = require('http')
 const createApp = require('./app')
-const port = 3000
+const config = require('./config')
+
+const port = config.port 
 
 start()
 
-function start () {
+async function start () {
   const app = createApp()
   
-  app.listen(port, () => {
-    console.log(`Example app listening on port ${port}`)
-  })
+  const server = await app.listen(port, '0.0.0.0') // Listen on every network interface
+  console.log(`Server listening on ${server.address().address}:${server.address().port}`)
 }
