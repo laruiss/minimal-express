@@ -1,1 +1,28 @@
+@baseUrl = http://localhost:3500/api
+
 http://localhost:3500/version?foo=bar
+
+###
+{{baseUrl}}/books
+
+###
+POST {{baseUrl}}/books HTTP/1.1
+Content-Type: application/json
+
+{
+  "title": "The subtil art of not giving a fuck",
+  "author": "Mark Manson",
+  "desc": "The description",
+  "year": 2016
+}
+
+###
+PATCH {{baseUrl}}/books/6508583db601bfc571d2116f HTTP/1.1
+Content-Type: application/json
+
+{
+  "year": 2016
+}
+
+###
+DELETE {{baseUrl}}/books/6508583db601bfc571d2116f HTTP/1.1
