@@ -1,16 +1,25 @@
 const express = require('express')
+const helmet = require('helmet')
+const cors = require('cors')
+const cookieparser = require('cookie-parser')
 
 const createLogger = require('./utils/logger')
 const getMainRouter = require('./router')
 const connect = require('./db/connect')
+const logger = createLogger()
 
 const createApp = async () => {
   const app = express()
 
-  const logger = createLogger()
   app.use(logger)
 
   app.use(express.json())
+  app.use(express.urlencoded({ extended: false }))
+  app.use(cookieparser())
+  app.use(cors({ origin: '*' }))
+  app.use(helmet({
+    crossOriginResourcePolicy: false,
+  }))
 
   const mainRouter = getMainRouter()
   app.use('/api', mainRouter)

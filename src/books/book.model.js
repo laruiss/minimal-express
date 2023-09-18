@@ -3,11 +3,23 @@ const mongoose = require('mongoose')
 const { Schema } = mongoose
 
 const bookSchema = new Schema({
-  title: String,
-  author: String,
+  title: {
+    type: String,
+    required: true,
+  },
+  author: {
+    type: String,
+    required: true,
+  },
   desc: String,
-  theme: String,
-  year: Number,
+  theme: {
+    type: String,
+    required: true,
+  },
+  year: {
+    type: Number,
+    required: true,
+  },
 })
 
 module.exports = mongoose.model('Book', bookSchema)

@@ -1,9 +1,15 @@
-@baseUrl = http://localhost:3500/api
+@baseUrlProd = http://sieli-books.onrender.com/api
+@baseUrlLocal = http://localhost:3500/api
+@baseUrl = {{baseUrlLocal}}
 
 http://localhost:3500/version?foo=bar
 
 ###
 {{baseUrl}}/books
+
+
+###
+{{baseUrl}}/books/6508640b67e63b4db8bf633d
 
 ###
 POST {{baseUrl}}/books HTTP/1.1
