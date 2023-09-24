@@ -1,7 +1,6 @@
 const express = require('express')
 const helmet = require('helmet')
 const cors = require('cors')
-const cookieparser = require('cookie-parser')
 
 const createLogger = require('./utils/logger')
 const getMainRouter = require('./router')
@@ -15,7 +14,6 @@ const createApp = async () => {
 
   app.use(express.json())
   app.use(express.urlencoded({ extended: false }))
-  app.use(cookieparser())
   app.use(cors({ origin: '*' }))
   app.use(helmet({
     crossOriginResourcePolicy: false,

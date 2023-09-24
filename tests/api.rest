@@ -2,7 +2,7 @@
 @baseUrlLocal = http://localhost:3500/api
 @baseUrl = {{baseUrlLocal}}
 
-http://localhost:3500/version?foo=bar
+{{baseUrl}}/version
 
 ###
 {{baseUrl}}/books
