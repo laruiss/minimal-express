@@ -1,5 +1,6 @@
 const Router = require('express').Router
 
+const checkJwt = require('../middlewares/check-jwt')
 const Book = require('./book.model')
 
 const router = new Router()
@@ -111,8 +112,8 @@ const removeBook = async (req, res) => {
 
 router.get('', getBooks)
 router.get('/:id', getBookById)
-router.post('', saveBook)
-router.patch('/:id', updateBook)
-router.delete('/:id', removeBook)
+router.post('', checkJwt, saveBook)
+router.patch('/:id', checkJwt, updateBook)
+router.delete('/:id', checkJwt, removeBook)
 
 module.exports = router
