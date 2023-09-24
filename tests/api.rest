@@ -32,3 +32,14 @@ Content-Type: application/json
 
 ###
 DELETE {{baseUrl}}/books/6508583db601bfc571d2116f HTTP/1.1
+
+
+###
+POST {{baseUrl}}/auth/tokens HTTP/1.1
+Content-Type: application/json
+
+{
+  "email": "admin@example.com",
+  "password": "53CR37P455"
+}
+
